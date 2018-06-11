@@ -303,11 +303,11 @@ namespace DoAnLTTQ
                     btnHard.Draw(spriteBatch);
                     break;
                 case GameState.HowToPlay:
-                    spriteBatch.Draw(Content.Load<Texture2D>("Howtoplay1"), new Rectangle(75, 50, 800, 500), Color.White);
+                    spriteBatch.Draw(Content.Load<Texture2D>("MainMenu//Howtoplay1"), new Rectangle(75, 50, 800, 500), Color.White);
                     btnBack.Draw(spriteBatch);
                     break;
                 case GameState.About:
-                    spriteBatch.Draw(Content.Load<Texture2D>("About1"), new Rectangle(75, 100, 800, 400), Color.White);
+                    spriteBatch.Draw(Content.Load<Texture2D>("MainMenu//About1"), new Rectangle(75, 100, 800, 400), Color.White);
                     btnBack.Draw(spriteBatch);
                     break;
                 case GameState.Hard:
