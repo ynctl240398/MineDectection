@@ -517,6 +517,13 @@ namespace DoAnLTTQ
 
                         if (bState[i, j] == -1)
                         {
+                            for (int x = 1; x <= 10; x++)
+                            {
+                                for (int y = 1; y <= 10; y++)
+                                {
+                                    Button[x, y] = Button1[x, y];
+                                }
+                            }
                             Explosion = new cExplosion(this, new Point(150 + (j - 1) * 65, (i - 1) * 65), Content.Load<Texture2D>("Sprite//Explosion"));
                             Components.Add(Explosion);
                             soundExplosion.Play();
