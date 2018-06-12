@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoAnLTTQ", "DoAnLTTQ\DoAnLTTQ\DoAnLTTQ.csproj", "{7B68EFBB-D8FD-444F-85FD-B40A15E19BD5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoAnLTTQContent", "DoAnLTTQ\DoAnLTTQContent\DoAnLTTQContent.contentproj", "{8E1ABC66-5864-4CEB-A9BB-E46A3204D884}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MineDectection_Setup", "MineDectection_Setup\MineDectection_Setup.vdproj", "{84A648F2-E168-4D9B-906D-7C336DA14B26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,8 +33,16 @@ Global
 		{8E1ABC66-5864-4CEB-A9BB-E46A3204D884}.DVD-5|x86.ActiveCfg = Debug|x86
 		{8E1ABC66-5864-4CEB-A9BB-E46A3204D884}.Release|x86.ActiveCfg = Release|x86
 		{8E1ABC66-5864-4CEB-A9BB-E46A3204D884}.SingleImage|x86.ActiveCfg = Release|x86
+		{84A648F2-E168-4D9B-906D-7C336DA14B26}.CD_ROM|x86.ActiveCfg = Release
+		{84A648F2-E168-4D9B-906D-7C336DA14B26}.Debug|x86.ActiveCfg = Debug
+		{84A648F2-E168-4D9B-906D-7C336DA14B26}.DVD-5|x86.ActiveCfg = Debug
+		{84A648F2-E168-4D9B-906D-7C336DA14B26}.Release|x86.ActiveCfg = Release
+		{84A648F2-E168-4D9B-906D-7C336DA14B26}.SingleImage|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {682E8B6A-15AD-4E83-9A70-6695579B867D}
 	EndGlobalSection
 EndGlobal
