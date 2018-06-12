@@ -265,6 +265,7 @@ namespace DoAnLTTQ
                 case GameState.Easy:
                     if (statebutton == StateButton.Playing)
                     {
+                        startgame = true;
                         Start(4, 5); 
                         statebutton = StateButton.Easy;
                     }
@@ -285,6 +286,7 @@ namespace DoAnLTTQ
                 case GameState.Medium:
                     if (statebutton == StateButton.Playing)
                     {
+                        startgame = true;
                         Start(8, 21);
                         statebutton = StateButton.Medium;
                     }
