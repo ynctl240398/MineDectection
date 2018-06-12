@@ -31,6 +31,7 @@ namespace DoAnLTTQ
         Point LimitMove1, LimitMove2;
         SoundEffect footstep;
 
+
         public cPlayer(Game game, Texture2D newTexture, Point newPosition, Point LimitMove, SoundEffect footstep)
             : base(game)
         {
@@ -49,6 +50,13 @@ namespace DoAnLTTQ
             Point p2 = rect.Center;
             Vector2 vt2 = new Vector2(p2.X, p2.Y);
             return (Vector2.Distance(player, vt2) < 32);
+        }
+        public Point GetPosition
+        {
+            get
+            {
+                return this.Position;
+            }
         }
         private void UpdateState()
         {

@@ -15,7 +15,7 @@ namespace DoAnLTTQ
         Point Position;
         Vector2 SizeButton;
         Rectangle rectangleButton;
-        bool down, click = true;
+        bool down, click = true, ReClick;
         public bool IsClicked;
         Color colour = new Color(255, 255, 255, 255);
         SoundEffect magicstep;
@@ -30,6 +30,7 @@ namespace DoAnLTTQ
 
         public void Update(MouseState mouse)
         {
+            IsClicked = false;
             Rectangle mouseRectangle = new Rectangle(mouse.X, mouse.Y, 1, 1);
             if (mouseRectangle.Intersects(rectangleButton))
             {
@@ -37,14 +38,19 @@ namespace DoAnLTTQ
                 if (colour.A == 0) down = false;
                 if (down) colour.A += 3;
                 else colour.A -= 3;
-                if (mouse.LeftButton == ButtonState.Pressed)
+                if (mouse.LeftButton == ButtonState.Pressed && ReClick == true)
                 {
                     IsClicked = true;
+                    ReClick = false;
                     if (click)
                     {
                         magicstep.Play();
                         click = false;
                     }
+                }
+                if (mouse.LeftButton == ButtonState.Released && ReClick == false)
+                {
+                    ReClick = true;
                 }
             }
             else if (colour.A < 255)
