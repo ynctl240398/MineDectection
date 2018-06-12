@@ -27,7 +27,7 @@ namespace DoAnLTTQ
         int Timer = 70;
         int LastTickCount = System.Environment.TickCount;
         bool Moving = false;
-        bool walk = false;
+        bool walk = false, sound = true;
         Point LimitMove1, LimitMove2;
         SoundEffect footstep;
 
@@ -81,7 +81,8 @@ namespace DoAnLTTQ
         {
             if (walk)
             {
-                footstep.Play(1f, 1f, 1f);
+                if (sound)
+                    footstep.Play(1f, 1f, 1f);
                 walk = false;
             }
             Moving = true;
@@ -127,8 +128,9 @@ namespace DoAnLTTQ
                 Position.Y -= Speed;
             }
         }
-        public void Update()
+        public void Update(bool sound)
         {
+            this.sound = sound;
             KeyboardState keyboard = Keyboard.GetState();
 
             if (System.Environment.TickCount - LastTickCount > Timer - Speed)

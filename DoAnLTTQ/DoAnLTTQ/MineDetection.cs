@@ -250,7 +250,7 @@ namespace DoAnLTTQ
                     btnBack.Update(mouse, sound);
                     if (winner == Winner.Playing)
                     {
-                        player.Update();
+                        player.Update(sound);
                     }
                     else
                     {
@@ -271,7 +271,7 @@ namespace DoAnLTTQ
                     if (btnBack.IsClicked) CurrentGameState = GameState.Back;
                     btnBack.Update(mouse, sound);
                     if (winner == Winner.Playing)
-                        player.Update();
+                        player.Update(sound);
                     else
                     {
                         if (btnRestart.IsClicked)
@@ -291,7 +291,7 @@ namespace DoAnLTTQ
                     if (btnBack.IsClicked) CurrentGameState = GameState.Back;
                     btnBack.Update(mouse, sound);
                     if (winner == Winner.Playing)
-                        player.Update();
+                        player.Update(sound);
                     else
                     {
                         if (btnRestart.IsClicked)
