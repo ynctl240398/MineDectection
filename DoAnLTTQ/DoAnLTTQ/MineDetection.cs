@@ -40,7 +40,10 @@ namespace DoAnLTTQ
         }
         enum StateButton
         {
-            Hard, Easy, Medium, Playing,
+            Hard,
+            Easy,
+            Medium,
+            Playing,
         }
         GameState CurrentGameState = GameState.MainMenu;
         int x, y, fx, fy, count = 0;
@@ -80,26 +83,26 @@ namespace DoAnLTTQ
             spriteBatch = new SpriteBatch(GraphicsDevice);
             this.Services.AddService(typeof(SpriteBatch), spriteBatch);
             textureBackgournd = Content.Load<Texture2D>("MainMenu//BackGround");
-            btnPlay = new cButton(this, Content.Load<Texture2D>("MainMenu//Play"), new Point(x / 2 - 150, y / 2 - 300), new Vector2(300, 150), Content.Load<SoundEffect>("audios//magicstep"));
-            btnHowToPlay = new cButton(this, Content.Load<Texture2D>("MainMenu//HowToPlay"), new Point(x / 2 - 150, y / 2 - 150), new Vector2(300, 150), Content.Load<SoundEffect>("audios//magicstep"));
-            btnAbout = new cButton(this, Content.Load<Texture2D>("MainMenu//About"), new Point(x / 2 - 150, y / 2), new Vector2(300, 150), Content.Load<SoundEffect>("audios//magicstep"));
-            btnExit = new cButton(this, Content.Load<Texture2D>("MainMenu//Exit"), new Point(x / 2 - 150, y / 2 + 150), new Vector2(300, 150), Content.Load<SoundEffect>("audios//magicstep"));
-            btnBack = new cButton(this, Content.Load<Texture2D>("MainMenu//Back"), new Point(x - 150, y - 50), new Vector2(150, 100), Content.Load<SoundEffect>("audios//magicstep"));
-            btnEasy = new cButton(this, Content.Load<Texture2D>("MainMenu//Easy"), new Point(x / 2 - 150, y / 2 - 150), new Vector2(300, 150), Content.Load<SoundEffect>("audios//magicstep"));
-            btnMedium = new cButton(this, Content.Load<Texture2D>("MainMenu//Medium"), new Point(x / 2 - 150, y / 2), new Vector2(300, 150), Content.Load<SoundEffect>("audios//magicstep"));
-            btnHard = new cButton(this, Content.Load<Texture2D>("MainMenu//Hard"), new Point(x / 2 - 150, y / 2 + 150), new Vector2(300, 150), Content.Load<SoundEffect>("audios//magicstep"));
+            btnPlay = new cButton(this, Content.Load<Texture2D>("MainMenu//Play"), new Point(x / 2 - 150, y / 2 - 150), new Vector2(300, 100), Content.Load<SoundEffect>("audios//magicstep"));
+            btnHowToPlay = new cButton(this, Content.Load<Texture2D>("MainMenu//HowToPlay"), new Point(x / 2 - 150, y / 2 - 50), new Vector2(300, 100), Content.Load<SoundEffect>("audios//magicstep"));
+            btnAbout = new cButton(this, Content.Load<Texture2D>("MainMenu//About"), new Point(x / 2 - 150, y / 2 + 50), new Vector2(300, 100), Content.Load<SoundEffect>("audios//magicstep"));
+            btnExit = new cButton(this, Content.Load<Texture2D>("MainMenu//Exit"), new Point(x / 2 - 150, y / 2 + 150), new Vector2(300, 100), Content.Load<SoundEffect>("audios//magicstep"));
+            btnBack = new cButton(this, Content.Load<Texture2D>("MainMenu//Back"), new Point(x - 150, y - 50), new Vector2(160, 75), Content.Load<SoundEffect>("audios//magicstep"));
+            btnEasy = new cButton(this, Content.Load<Texture2D>("MainMenu//Easy"), new Point(x / 2 - 150, y / 2 - 150), new Vector2(300, 100), Content.Load<SoundEffect>("audios//magicstep"));
+            btnMedium = new cButton(this, Content.Load<Texture2D>("MainMenu//Medium"), new Point(x / 2 - 150, y / 2), new Vector2(300, 100), Content.Load<SoundEffect>("audios//magicstep"));
+            btnHard = new cButton(this, Content.Load<Texture2D>("MainMenu//Hard"), new Point(x / 2 - 150, y / 2 + 150), new Vector2(300, 100), Content.Load<SoundEffect>("audios//magicstep"));
             btnWin = new cButton(this, Content.Load<Texture2D>("MainMenu//Win"), new Point(x / 2 - 150, y / 2 - 75), new Vector2(300, 150), Content.Load<SoundEffect>("audios//magicstep"));
             btnLose = new cButton(this, Content.Load<Texture2D>("MainMenu//Lose"), new Point(x / 2 - 150, y / 2 - 75), new Vector2(300, 150), Content.Load<SoundEffect>("audios//magicstep"));
-            btnRestart = new cButton(this, Content.Load<Texture2D>("MainMenu//Restart"), new Point(0, y - 50), new Vector2(150, 100), Content.Load<SoundEffect>("audios//magicstep"));
-            btnMute = new cButton(this, Content.Load<Texture2D>("MainMenu//Mute"), new Point(880, 20), new Vector2(50, 50), Content.Load<SoundEffect>("audios//magicstep"));
-            btnUnmute = new cButton(this, Content.Load<Texture2D>("MainMenu//Unmute"), new Point(880, 20), new Vector2(30, 50), Content.Load<SoundEffect>("audios//magicstep"));
+            btnRestart = new cButton(this, Content.Load<Texture2D>("MainMenu//Restart"), new Point(-20, y - 50), new Vector2(150, 75), Content.Load<SoundEffect>("audios//magicstep"));
+            btnMute = new cButton(this, Content.Load<Texture2D>("MainMenu//Mute"), new Point(850, 20), new Vector2(100, 50), Content.Load<SoundEffect>("audios//magicstep"));
+            btnUnmute = new cButton(this, Content.Load<Texture2D>("MainMenu//Unmute"), new Point(850, 20), new Vector2(100, 50), Content.Load<SoundEffect>("audios//magicstep"));
             soundExplosion = Content.Load<SoundEffect>("Audios//explosion");
             soundGameover = Content.Load<SoundEffect>("Audios//gameover");
             soundStartgame = Content.Load<SoundEffect>("Audios//startgame");
             soundWinner = Content.Load<SoundEffect>("Audios//Winner");
-            soundMainMenu = Content.Load<Song>("Audios//MainMenu");
+            soundConvert = soundMainMenu = Content.Load<Song>("Audios//MainMenu");
             soundPlayBackground = Content.Load<Song>("Audios//PlayBackground");
-            MediaPlayer.Play(soundMainMenu);
+            MediaPlayer.Play(soundConvert);
         }
         protected override void UnloadContent()
         {
@@ -198,44 +201,43 @@ namespace DoAnLTTQ
             {
                 if (btnUnmute.IsClicked)
                     sound = false;
-                btnUnmute.Update(mouse);
+                btnUnmute.Update(mouse, sound);
             }
             else
             {
                 if (btnMute.IsClicked)
                     sound = true;
-                btnMute.Update(mouse);
+                btnMute.Update(mouse, sound);
             }
-                switch (CurrentGameState)
+            switch (CurrentGameState)
             {
                 case GameState.MainMenu:
                     if (btnPlay.IsClicked) CurrentGameState = GameState.Playing;
                     if (btnHowToPlay.IsClicked) CurrentGameState = GameState.HowToPlay;
                     if (btnAbout.IsClicked) CurrentGameState = GameState.About;
                     if (btnExit.IsClicked) CurrentGameState = GameState.Exit;
-                    btnPlay.Update(mouse);
-                    btnHowToPlay.Update(mouse);
-                    btnAbout.Update(mouse);
-                    btnExit.Update(mouse);
+                    btnPlay.Update(mouse, sound);
+                    btnHowToPlay.Update(mouse, sound);
+                    btnAbout.Update(mouse, sound);
+                    btnExit.Update(mouse, sound);
                     break;
                 case GameState.Playing:
-                    
-                    if (btnBack.IsClicked) CurrentGameState = GameState.Back;
+                    if (btnBack.IsClicked) CurrentGameState = GameState.MainMenu;
                     if (btnEasy.IsClicked) { CurrentGameState = GameState.Easy; statebutton = StateButton.Playing; }
                     if (btnHard.IsClicked) { CurrentGameState = GameState.Hard; statebutton = StateButton.Playing; }
                     if (btnMedium.IsClicked) { CurrentGameState = GameState.Medium; statebutton = StateButton.Playing; }
-                    btnBack.Update(mouse);
-                    btnMedium.Update(mouse);
-                    btnHard.Update(mouse);
-                    btnEasy.Update(mouse);
+                    btnBack.Update(mouse, sound);
+                    btnMedium.Update(mouse, sound);
+                    btnHard.Update(mouse, sound);
+                    btnEasy.Update(mouse, sound);
                     break;
                 case GameState.HowToPlay:
                     if (btnBack.IsClicked) CurrentGameState = GameState.MainMenu;
-                    btnBack.Update(mouse);
+                    btnBack.Update(mouse, sound);
                     break;
                 case GameState.About:
                     if (btnBack.IsClicked) CurrentGameState = GameState.MainMenu;
-                    btnBack.Update(mouse);
+                    btnBack.Update(mouse, sound);
                     break;
                 case GameState.Hard:
                     if (statebutton == StateButton.Playing)
@@ -244,8 +246,8 @@ namespace DoAnLTTQ
                         Start(10, 33);
                         statebutton = StateButton.Hard;
                     }
-                    if (btnBack.IsClicked) { CurrentGameState = GameState.Playing; }
-                    btnBack.Update(mouse);
+                    if (btnBack.IsClicked) CurrentGameState = GameState.Back;
+                    btnBack.Update(mouse, sound);
                     if (winner == Winner.Playing)
                     {
                         player.Update();
@@ -255,7 +257,7 @@ namespace DoAnLTTQ
                         if (btnRestart.IsClicked)
                             if (player.GetPosition != StartPoint)
                                 statebutton = StateButton.Playing;
-                        btnRestart.Update(mouse);
+                        btnRestart.Update(mouse, sound);
                     }
                     if (stopped == false)
                         CheckCollision(10);
@@ -266,11 +268,8 @@ namespace DoAnLTTQ
                         Start(4, 5); 
                         statebutton = StateButton.Easy;
                     }
-                    if (btnBack.IsClicked)
-                    {
-                        CurrentGameState = GameState.Playing;
-                    }
-                    btnBack.Update(mouse);
+                    if (btnBack.IsClicked) CurrentGameState = GameState.Back;
+                    btnBack.Update(mouse, sound);
                     if (winner == Winner.Playing)
                         player.Update();
                     else
@@ -278,7 +277,7 @@ namespace DoAnLTTQ
                         if (btnRestart.IsClicked)
                             if (player.GetPosition != StartPoint)
                                 statebutton = StateButton.Playing;
-                        btnRestart.Update(mouse);
+                        btnRestart.Update(mouse, sound);
                     }
                     if (stopped == false)
                         CheckCollision(4);
@@ -289,8 +288,8 @@ namespace DoAnLTTQ
                         Start(8, 21);
                         statebutton = StateButton.Medium;
                     }
-                    if (btnBack.IsClicked) CurrentGameState = GameState.Playing;
-                    btnBack.Update(mouse);
+                    if (btnBack.IsClicked) CurrentGameState = GameState.Back;
+                    btnBack.Update(mouse, sound);
                     if (winner == Winner.Playing)
                         player.Update();
                     else
@@ -298,16 +297,16 @@ namespace DoAnLTTQ
                         if (btnRestart.IsClicked)
                             if (player.GetPosition != StartPoint)
                                 statebutton = StateButton.Playing;
-                        btnRestart.Update(mouse);
+                        btnRestart.Update(mouse, sound);
                     }
                     if (stopped == false)
                         CheckCollision(8);
                     break;
                 case GameState.Back:
                     startgame = false;
-                    CurrentGameState = GameState.MainMenu;
+                    CurrentGameState = GameState.Playing;
                     soundConvert = soundMainMenu;
-                    LastTickCount -= 10000;
+                    LastTickCount -= 100000;
                     break;
                 case GameState.Exit:
                     break;

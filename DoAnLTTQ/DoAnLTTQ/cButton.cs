@@ -28,8 +28,10 @@ namespace DoAnLTTQ
             rectangleButton = new Rectangle(Position.X, Position.Y, (int)SizeButton.X, (int)SizeButton.Y);
         }
 
-        public void Update(MouseState mouse)
+        public void Update(MouseState mouse, bool sound)
         {
+            if (sound) click = true;
+            else click = false;
             IsClicked = false;
             Rectangle mouseRectangle = new Rectangle(mouse.X, mouse.Y, 1, 1);
             if (mouseRectangle.Intersects(rectangleButton))
