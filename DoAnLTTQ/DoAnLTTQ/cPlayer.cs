@@ -49,7 +49,7 @@ namespace DoAnLTTQ
 
             Point p2 = rect.Center;
             Vector2 vt2 = new Vector2(p2.X, p2.Y);
-            return (Vector2.Distance(player, vt2) < 32);
+            return (Vector2.Distance(player, vt2) < 33);
         }
         public Point GetPosition
         {
