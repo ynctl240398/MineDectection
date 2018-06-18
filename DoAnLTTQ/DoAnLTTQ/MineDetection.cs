@@ -68,7 +68,7 @@ namespace DoAnLTTQ
             Content.RootDirectory = "Content";
             this.Window.Title = "Mine Detection";
             graphics.PreferredBackBufferWidth = 950;
-            graphics.PreferredBackBufferHeight = 700;
+            graphics.PreferredBackBufferHeight = 650;
         }
         protected override void Initialize()
         {
@@ -120,9 +120,9 @@ namespace DoAnLTTQ
             stopped = false;
             count = 0;
             winner = Winner.Playing;
-            Button = new cButton[11, 11];
-            Button1 = new cButton[11, 11];
-            bState = new int[12, 12];
+            Button = new cButton[NumberOfButton + 1, NumberOfButton + 1];
+            Button1 = new cButton[NumberOfButton + 1, NumberOfButton + 1];
+            bState = new int[NumberOfButton + 2, NumberOfButton + 2];
             for (int i = 1; i <= NumberOfButton; i++)
             {
                 for (int j = 1; j <= NumberOfButton; j++)
@@ -139,7 +139,7 @@ namespace DoAnLTTQ
             }
             bState[fx, fy] = 100;
             FindAway(fx, fy);
-            RandomBoom(NumberOfBoom);
+            RandomBoom(NumberOfBoom, NumberOfButton);
             CheckBoom(NumberOfButton);
             int by = 0;
             for (int i = 1; i <= NumberOfButton; i++)
@@ -255,8 +255,7 @@ namespace DoAnLTTQ
                     else
                     {
                         if (btnRestart.IsClicked)
-                            if (player.GetPosition != StartPoint)
-                                statebutton = StateButton.Playing;
+                            statebutton = StateButton.Playing;
                         btnRestart.Update(mouse, sound);
                     }
                     if (stopped == false)
@@ -276,8 +275,7 @@ namespace DoAnLTTQ
                     else
                     {
                         if (btnRestart.IsClicked)
-                            if (player.GetPosition != StartPoint)
-                                statebutton = StateButton.Playing;
+                            statebutton = StateButton.Playing;
                         btnRestart.Update(mouse, sound);
                     }
                     if (stopped == false)
@@ -297,8 +295,7 @@ namespace DoAnLTTQ
                     else
                     {
                         if (btnRestart.IsClicked)
-                            if (player.GetPosition != StartPoint)
-                                statebutton = StateButton.Playing;
+                            statebutton = StateButton.Playing;
                         btnRestart.Update(mouse, sound);
                     }
                     if (stopped == false)
@@ -438,11 +435,11 @@ namespace DoAnLTTQ
             }
             bState[fx, fy] = 100;
         }
-        private void RandomBoom(int NumberOfBoom)
+        private void RandomBoom(int NumberOfBoom, int NumberOfButtons)
         {
             while (count < NumberOfBoom) // random boom
             {
-                int i = rand.Next(1, 11), j = rand.Next(1, 11);
+                int i = rand.Next(1, NumberOfButtons + 1), j = rand.Next(1, NumberOfButtons + 1);
                 if (bState[i, j] == 1)
                 {
                     bState[i, j] = -1;
@@ -522,9 +519,9 @@ namespace DoAnLTTQ
                         if (i == fx && j == fy)
                         {
                             Button[i, j] = Button1[fx, fy];
-                            for (int x = 1; x <= 10; x++)
+                            for (int x = 1; x <= NumberOfButtons; x++)
                             {
-                                for (int y = 1; y <= 10; y++)
+                                for (int y = 1; y <= NumberOfButtons; y++)
                                 {
                                     Button[x, y] = Button1[x, y];
                                 }
@@ -541,9 +538,9 @@ namespace DoAnLTTQ
 
                         if (bState[i, j] == -1)
                         {
-                            for (int x = 1; x <= 10; x++)
+                            for (int x = 1; x <= NumberOfButtons; x++)
                             {
-                                for (int y = 1; y <= 10; y++)
+                                for (int y = 1; y <= NumberOfButtons; y++)
                                 {
                                     Button[x, y] = Button1[x, y];
                                 }

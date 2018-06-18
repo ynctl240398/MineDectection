@@ -51,13 +51,6 @@ namespace DoAnLTTQ
             Vector2 vt2 = new Vector2(p2.X, p2.Y);
             return (Vector2.Distance(player, vt2) < 33);
         }
-        public Point GetPosition
-        {
-            get
-            {
-                return this.Position;
-            }
-        }
         private void UpdateState()
         {
             if (Moving)
@@ -82,7 +75,7 @@ namespace DoAnLTTQ
             if (walk)
             {
                 if (sound)
-                    footstep.Play(1f, 1f, 1f);
+                    footstep.Play();
                 walk = false;
             }
             Moving = true;
